@@ -15,3 +15,6 @@ class Shop(Store):
         else:
             print('Недостаточно свободного места в магазине')
             return False
+
+    def get_unique_items_count(self):  # возвращает количество уникальных товаров
+        return len(self._items.keys())

@@ -23,8 +23,8 @@ class Request:
             self.__from = 'store'
 
         if self.__to and self.__from:  # проверка на случай нехватки свободного места в точке выгрузки товара
-            if eval(self.__to).add(self.__product, self.__amount):  # чтобы программа не перемещала товар
-                eval(self.__from).remove(self.__product, self.__amount)
+            if eval(self.__from).remove(self.__product, self.__amount):  # чтобы программа не перемещала товар
+                eval(self.__to).add(self.__product, self.__amount)
         elif self.__to:
             eval(self.__to).add(self.__product, self.__amount)
         elif self.__from:

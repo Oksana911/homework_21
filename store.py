@@ -22,15 +22,25 @@ class Store(Storage):
         return st
 
     def add(self, product, amount):  # увеличивает запас items
-        if self.get_free_space() >= amount:
-            self._items[product] += amount
-            print(f'Товар {product} успешно выгружен на склад в количестве {amount}')
+        if product in self._items.keys():
+            if self.get_free_space() >= amount:
+                self._items[product] += amount
+                print(f'Товар {product} успешно выгружен на склад в количестве {amount}')
+            else:
+                print('Недостаточно свободного места на складе')
+                return False
         else:
-            print('Недостаточно свободного места на складе')
-            return False
+            if self.get_free_space() >= amount:
+                self._items[product] = product
+                self._items[product] += amount
+                print(f'Товар {product} успешно выгружен на склад в количестве {amount}')
+            else:
+                print('Недостаточно свободного места на складе')
+                return False
 
     def remove(self, product, amount):  # уменьшает запас items
         if self._items[product] >= amount:
+            print('Нужное количество товара есть на ')
             self._items[product] -= amount
             print(f'Товар {product} успешно отгружен из {self} в количестве {amount}')
         else:

@@ -13,8 +13,11 @@ def main():
             print('До свидания')
             break
 
-        request = Request(user_input)
-        request.move()
+        try:
+            request = Request(user_input)
+            request.move()
+        except Exception as e:
+            print(f'Произошла ошибка: {e}')
 
 
 if __name__ == '__main__':

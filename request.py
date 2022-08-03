@@ -31,5 +31,5 @@ class Request:
             eval(self.__from).remove(self.__product, self.__amount)
 
 
-store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10})
+store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10, 'кокос': 10, 'банан': 10, 'перец': 10})
 shop = Shop(items={'яблоко': 2, 'дыня': 2, 'слива': 2})

@@ -1,8 +1,6 @@
 from shop import Shop
 from store import Store
 
-store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10})
-shop = Shop(items={'яблоко': 2, 'дыня': 2, 'слива': 2})
 
 class Request:
     """Обрабатывает запрос типа "Доставить 3 печеньки из склад в магазин" """
@@ -17,11 +15,11 @@ class Request:
     def move(self):
         if self.__to == 'магазин':
             self.__to = 'shop'
-        elif self.__from == 'магазин':
-            self.__from = 'shop'
-        elif self.__to == 'склад':
+        if self.__to == 'склад':
             self.__to = 'store'
-        elif self.__from == 'склад':
+        if self.__from == 'магазин':
+            self.__from = 'shop'
+        if self.__from == 'склад':
             self.__from = 'store'
 
         if self.__to and self.__from:  # проверка на случай нехватки свободного места в точке выгрузки товара
@@ -32,3 +30,6 @@ class Request:
         elif self.__from:
             eval(self.__from).remove(self.__product, self.__amount)
 
+
+store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10})
+shop = Shop(items={'яблоко': 2, 'дыня': 2, 'слива': 2})

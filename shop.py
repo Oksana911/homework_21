@@ -20,9 +20,7 @@ class Shop(Store):
             return 'Магазин не может быть наполнен, если в нем уже есть 5 разных товаров.'
         if self.get_free_space() >= amount:
             self._items[product] += amount
-            return f'Товар {product} успешно выгружен в магазин в количестве {amount}'
+            print(f'Товар {product} успешно выгружен в магазин в количестве {amount}')
         else:
-            return 'Недостаточно свободного места в магазине'
-
-
-# shop = Shop(items={'яблоко': 3, 'дыня': 3, 'слива': 1})
+            print('Недостаточно свободного места в магазине')
+            return False

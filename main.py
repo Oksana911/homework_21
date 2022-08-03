@@ -1,15 +1,12 @@
-from request import Request
-from shop import Shop
-from store import Store
-
-store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10})
-shop = Shop(items={'яблоко': 3, 'дыня': 3, 'слива': 1})
+from request import Request, store, shop
 
 
 def main():
-    print('Добро пожаловать.')
+    print('\nДобро пожаловать.\n')
     while True:
-        user_input = input('Введите команду в формате "Доставить 1 слива из store в shop"\n'
+        print(f'Сейчас на складе:\n{store}')
+        print(f'Сейчас в магазине:\n{shop}')
+        user_input = input('Введите команду в формате "Доставить 1 слива из склад в магазин"\n'
                            'Введите "стоп", если хотите закончить\n')
 
         if user_input in ['стоп', 'stop']:

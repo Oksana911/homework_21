@@ -22,8 +22,8 @@ class Request:
         if self.__from == 'склад':
             self.__from = 'store'
 
-        eval(self.__from).remove(self.__product, self.__amount)
-        eval(self.__to).add(self.__product, self.__amount)
+        if eval(self.__from).remove(self.__product, self.__amount):
+            eval(self.__to).add(self.__product, self.__amount)
 
 
 store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10, 'кокос': 10, 'банан': 10, 'перец': 10})

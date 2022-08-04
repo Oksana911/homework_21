@@ -8,7 +8,7 @@ class Shop(Store):
 
     def add(self, product, amount):  # увеличивает запас items
         if self.get_unique_items_count() >= 5:
-            print('Магазин не может быть наполнен, если в нем уже есть 5 разных товаров.')
+            print('Магазин не может быть пополнен, если в нем уже есть 5 разных товаров.')
         else:
             super(Shop, self).add(product, amount)
 

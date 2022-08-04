@@ -33,10 +33,10 @@ class Store(Storage):
         else:
             if self.get_free_space() >= amount:
                 self._items[product] = amount
-                print(f'Товар {product} успешно выгружен на склад в количестве {amount}')
+                print(f'Товар {product} успешно выгружен в количестве {amount}')
                 return True
             else:
-                print('Недостаточно свободного места на складе')
+                print('Недостаточно свободного места')
                 return False
 
     def remove(self, product, amount):  # уменьшает запас items
@@ -57,7 +57,7 @@ class Store(Storage):
 
     @property
     def get_items(self):  # возвращает содержание склада в словаре {товар: количество}
-        return f'Всего в {self}: {self._items}'
+        return f'Всего: {self._items}'
 
     def get_unique_items_count(self):  # возвращает количество уникальных товаров
         pass

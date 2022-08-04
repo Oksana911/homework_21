@@ -3,7 +3,7 @@ from store import Store
 
 
 class Request:
-    """Обрабатывает запрос типа "Доставить 3 печеньки из склад в магазин" """
+    """Обрабатывает запрос типа "Доставить 3 яблоко из склад в магазин" """
 
     def __init__(self, request_str):
         req_list = request_str.split(" ")
@@ -22,14 +22,8 @@ class Request:
         if self.__from == 'склад':
             self.__from = 'store'
 
-        if self.__to and self.__from:  # проверка на случай нехватки свободного места в точке выгрузки товара
-            if eval(self.__from).remove(self.__product, self.__amount):  # чтобы программа не перемещала товар
-                if not eval(self.__to).add(self.__product, self.__amount):
-                    eval(self.__from).add(self.__product, self.__amount)
-        # elif self.__to:
-        #     eval(self.__to).add(self.__product, self.__amount)
-        # elif self.__from:
-        #     eval(self.__from).remove(self.__product, self.__amount)
+        eval(self.__from).remove(self.__product, self.__amount)
+        eval(self.__to).add(self.__product, self.__amount)
 
 
 store = Store(items={'яблоко': 10, 'дыня': 20, 'слива': 10, 'кокос': 10, 'банан': 10, 'перец': 10})

@@ -25,10 +25,10 @@ class Store(Storage):
         if product in self._items.keys():
             if self.get_free_space() >= amount:
                 self._items[product] += amount
-                print(f'Товар {product} успешно выгружен на склад в количестве {amount}')
+                print(f'Товар {product} успешно выгружен в количестве {amount}')
                 return True
             else:
-                print('Недостаточно свободного места на складе')
+                print('Недостаточно свободного места')
                 return False
         else:
             if self.get_free_space() >= amount:

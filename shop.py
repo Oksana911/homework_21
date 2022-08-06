@@ -10,7 +10,7 @@ class Shop(Store):
         if self.get_unique_items_count() >= 5:
             print('Магазин не может быть пополнен, если в нем уже есть 5 разных товаров.')
         else:
-            super(Shop, self).add(product, amount)
+            super().add(product, amount)
 
     def get_unique_items_count(self):  # возвращает количество уникальных товаров
         return len(self._items.keys())
